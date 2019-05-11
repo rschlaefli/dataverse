@@ -23,7 +23,7 @@ public class BenchmarkApiUtil {
     @Param({"10000000"})
     private int N;
 
-    private List<String> TEST_DATA = Arrays.asList("asdasd", "asdas", " asdf ");
+    private List<String> TEST_DATA = Arrays.asList("asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ", "asdasd", "asdas", " asdf ");
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
@@ -35,7 +35,8 @@ public class BenchmarkApiUtil {
     }
 
     @Setup
-    public void setup() {}
+    public void setup() {
+    }
 
     @Benchmark
     public void benchmarkApiUtil(Blackhole bh) {
