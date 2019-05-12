@@ -127,11 +127,29 @@ public class Util {
         Set<String> result = new HashSet<>();
 
         for (String string : stringsToCheck) {
-            if (string != null && !string.equals("")) {
-                result.add(string.trim());
+            if (string != null) {
+                String trimmed = string.trim();
+                if (!trimmed.equals("")) {
+                    result.add(trimmed);
+                }
             }
         }
 
         return new ArrayList<>(result);
+    }
+
+    public static List<String> removeDuplicatesNullsEmptyStrings_parallelStream(List<String> stringsToCheck) {
+
+        if (stringsToCheck == null) {
+            throw new NullPointerException("stringsToCheck cannot be null");
+        }
+
+        return stringsToCheck.parallelStream()
+                .unordered()
+                .filter(p -> p != null)         // no nulls
+                .map(String::trim)            // strip strings
+                .filter(p -> p.length() > 0)   // no empty strings
+                .distinct()                     // distinct
+                .collect(Collectors.toList());
     }
 }

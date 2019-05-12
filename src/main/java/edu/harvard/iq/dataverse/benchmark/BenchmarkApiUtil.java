@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 @Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx2G"})
 @Warmup(iterations = 10)
 @Measurement(iterations = 50)
+@Threads(4)
 public class BenchmarkApiUtil {
 
     // initialize a 1000 word test message
@@ -42,6 +43,11 @@ public class BenchmarkApiUtil {
     @Benchmark
     public void removeDuplicatesNullsEmptyStringsWithForLoop(Blackhole bh) {
         bh.consume(Util.removeDuplicatesNullsEmptyStrings_naiveForBased(this.TEST_DATA));
+    }
+
+    @Benchmark
+    public void removeDuplicatesNullsEmptyStringsWithParallelStream(Blackhole bh) {
+        bh.consume(Util.removeDuplicatesNullsEmptyStrings_parallelStream(this.TEST_DATA));
     }
 
     public static void main(String[] args) throws RunnerException {
