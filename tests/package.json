@@ -1,0 +1,12 @@
+{
+  "name": "dataverse-tests",
+  "version": "0.0.1",
+  "description": "See doc/sphinx-guides/source/developers/testing.rst",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^3.3.1"
+  }
+}
