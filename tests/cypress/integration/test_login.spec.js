@@ -3,6 +3,9 @@ describe('Log In', () => {
     // visit the log in page
     cy.visit('/loginpage.xhtml')
 
+    // should create a session cookie
+    cy.getCookie('JSESSIONID').should('exist')
+
     // fill out the login form inputs
     cy.get('input[name="loginForm:credentialsContainer:0:credValue"]').type(
       'dataverseAdmin'
@@ -14,14 +17,15 @@ describe('Log In', () => {
     // should redirect to the dataverse root page
     cy.url().should('include', '/dataverse/root')
 
-    // should create a session cookie
-    cy.getCookie('JSESSIONID').should('exist')
-
     // should show the user name in the navbar
     cy.get('span[id=userDisplayInfoTitle]').should('contain', 'Dataverse Admin')
   })
 
-  /* it('prevents login with an invalid username', () => {
+  /*
+  TODO: this fails due to the page being refreshed after failure
+  it('prevents login with an invalid username', () => {
+    cy.on('location:reload', cy.stub())
+
     // visit the log in page
     cy.visit('/loginpage.xhtml')
 
@@ -30,7 +34,7 @@ describe('Log In', () => {
       'inexistentUser'
     )
     cy.get('input[name="loginForm:credentialsContainer:1:sCredValue"]').type(
-      'admin1'
+      'admin1{enter}'
     )
 
     // should redirect to the dataverse root page
