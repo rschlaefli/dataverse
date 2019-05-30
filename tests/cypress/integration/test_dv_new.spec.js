@@ -30,5 +30,7 @@ describe('New Dataverse', function() {
     cy.get('input[id="dataverseForm:metadataRoot"]').should('be.checked')
 
     cy.get('input[id="dataverseForm:facetsRoot"]').should('be.checked')
+
+    // TODO: submit the form...
   })
 })

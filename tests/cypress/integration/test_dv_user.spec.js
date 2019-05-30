@@ -5,6 +5,7 @@ describe('Dataverse User', function() {
     login(cy)
   })
 
+  // TODO: reenable this if state reset is handled
   it.skip('allows the user to read and remove notifications', function() {
     cy.visit('/dataverseuser.xhtml?selectTab=notifications')
 
@@ -28,21 +29,27 @@ describe('Dataverse User', function() {
     cy.get('.form-control-static')
       .eq(0)
       .should('contain', 'dataverseAdmin')
+
     cy.get('.form-control-static')
       .eq(1)
       .should('contain', 'Dataverse')
+
     cy.get('.form-control-static')
       .eq(2)
       .should('contain', 'Admin')
+
     cy.get('.form-control-static')
       .eq(3)
       .should('contain', 'dataverse@mailinator.com')
+
     cy.get('.form-control-static')
       .eq(4)
       .should('contain', 'Not Verified')
+
     cy.get('.form-control-static')
       .eq(5)
       .should('contain', 'Dataverse.org')
+
     cy.get('.form-control-static')
       .eq(6)
       .should('contain', 'Admin')
