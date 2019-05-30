@@ -1,5 +1,5 @@
 describe('Log In', () => {
-  it('successfully authenticates a valid admin user', () => {
+  beforeEach(function() {
     // visit the log in page
     cy.visit('/loginpage.xhtml')
 
@@ -11,7 +11,14 @@ describe('Log In', () => {
       'dataverseAdmin'
     )
     cy.get('input[name="loginForm:credentialsContainer:1:sCredValue"]').type(
-      'admin1{enter}'
+      'admin1'
+    )
+  })
+
+  it('enables logging in with the enter key', () => {
+    // press enter
+    cy.get('input[name="loginForm:credentialsContainer:1:sCredValue"]').type(
+      '{enter}'
     )
 
     // should redirect to the dataverse root page
@@ -21,23 +28,14 @@ describe('Log In', () => {
     cy.get('span[id=userDisplayInfoTitle]').should('contain', 'Dataverse Admin')
   })
 
-  /*
-  TODO: this fails due to the page being refreshed after failure
-  it('prevents login with an invalid username', () => {
-    cy.on('location:reload', cy.stub())
-
-    // visit the log in page
-    cy.visit('/loginpage.xhtml')
-
-    // fill out the login form inputs
-    cy.get('input[name="loginForm:credentialsContainer:0:credValue"]').type(
-      'inexistentUser'
-    )
-    cy.get('input[name="loginForm:credentialsContainer:1:sCredValue"]').type(
-      'admin1{enter}'
-    )
+  it('enables logging in by clicking the submit button', () => {
+    // click the login button
+    cy.get('button[name="loginForm:login').click()
 
     // should redirect to the dataverse root page
     cy.url().should('include', '/dataverse/root')
-  }) */
+
+    // should show the user name in the navbar
+    cy.get('span[id=userDisplayInfoTitle]').should('contain', 'Dataverse Admin')
+  })
 })
