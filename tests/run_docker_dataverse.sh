@@ -2,4 +2,4 @@
 
 cd ..
 . ./conf/docker-aio/prep_it.bash
-. ./conf/docker-aio/run-test-suite.sh
+# . ./conf/docker-aio/run-test-suite.sh
