@@ -31,6 +31,6 @@ describe('New Dataverse', function() {
 
     cy.get('input[id="dataverseForm:facetsRoot"]').should('be.checked')
 
-    // TODO: submit the form...
+    cy.contains('Create Dataverse').click()
   })
 })
