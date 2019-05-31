@@ -34,7 +34,6 @@ jobs:
       install:
         - npm ci
       before_script:
-        - cd tests
         - run_docker_dataverse.sh
       script:
         - $(npm bin)/cypress run --record
