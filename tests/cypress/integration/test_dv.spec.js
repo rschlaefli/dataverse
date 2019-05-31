@@ -1,18 +1,6 @@
 import { login } from '../util'
 
 describe('Dataverse', function() {
-  before(function() {
-    // login(cy, () => {
-      // remove any existing dataverse with the test identifier
-      // conditional testing should only be used in very rare (synchronous cases)
-      // https://docs.cypress.io/guides/core-concepts/conditional-testing.html#Element-existence
-      // cy.visit('/dataverse/testDv', { failOnStatusCode: false })
-      // cy.contains('Edit').click()
-      // cy.contains('Delete Dataverse').click()
-      // cy.get('.ui-dialog-content button[type="submit"]:visible').click()
-    // })
-  })
-
   beforeEach(function() {
     login(cy)
   })
@@ -63,7 +51,7 @@ describe('Dataverse', function() {
     cy.get('.dataverseHeaderCell').should('contain', 'Unpublished')
   })
 
-  it.only('allows datasets to be created', function() {
+  it('allows datasets to be created', function() {
     cy.visit('/dataverse/testDv')
 
     // click through to the new dataset page

@@ -5,8 +5,7 @@ describe('Dataverse User', function() {
     login(cy)
   })
 
-  // TODO: reenable this if state reset is handled
-  it.skip('allows the user to read and remove notifications', function() {
+  it('allows the user to read and remove notifications', function() {
     cy.visit('/dataverseuser.xhtml?selectTab=notifications')
 
     // expect there to be one notification
