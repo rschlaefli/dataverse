@@ -2,7 +2,7 @@
  * Function that performs a programmatic login
  * @param {Cypress} cy
  */
-export function login(cy) {
+export function login(cy, cb) {
   // need to visit the login page to get the CSRF token
   cy.visit('/loginpage.xhtml')
 
@@ -26,6 +26,6 @@ export function login(cy) {
         'loginForm:credentialsContainer:1:sCredValue': 'admin1',
         'javax.faces.ViewState': viewState[0].value,
       },
-    })
+    }).then(cb)
   })
 }
