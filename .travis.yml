@@ -29,11 +29,12 @@ jobs:
         directories:
           # we also need to cache folder with Cypress binary
           - ~/.cache
-      before_script:
+      before_install:
         - cd tests
-        # run docker-aio
-        - run_docker_dataverse.sh
       install:
         - npm ci
+      before_script:
+        - cd tests
+        - run_docker_dataverse.sh
       script:
         - $(npm bin)/cypress run --record
