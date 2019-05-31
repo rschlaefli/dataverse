@@ -34,6 +34,7 @@ jobs:
       install:
         - npm ci
       before_script:
-        - run_docker_dataverse.sh
+        - ./run_docker_dataverse.sh
       script:
+        # --key needs to be injected using CYPRESS_RECORD_KEY to keep it secret
         - $(npm bin)/cypress run --record
