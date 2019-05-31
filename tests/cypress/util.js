@@ -26,6 +26,6 @@ export function login(cy, cb) {
         'loginForm:credentialsContainer:1:sCredValue': 'admin1',
         'javax.faces.ViewState': viewState[0].value,
       },
-    }).then(cb)
+    }).then(cb ? cb : () => null)
   })
 }

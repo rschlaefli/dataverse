@@ -1,7 +1,7 @@
 import { login } from '../util'
 
 describe('Dataverse', function() {
-  beforeEach(function() {
+  before(function() {
     login(cy, () => {
       // remove any existing dataverse with the test identifier
       // conditional testing should only be used in very rare (synchronous cases)
@@ -11,6 +11,10 @@ describe('Dataverse', function() {
       cy.contains('Delete Dataverse').click()
       cy.get('.ui-dialog-content button[type="submit"]:visible').click()
     })
+  })
+
+  beforeEach(function() {
+    login(cy)
   })
 
   it('can be created with minimal changes', function() {
@@ -56,7 +60,7 @@ describe('Dataverse', function() {
 
     // ensure that we have been redirected to the correct dataverse page
     cy.url().should('contain', '/dataverse/testDv')
-    cy.get('Unpublished').should('exist')
+    cy.get('.dataverseHeaderCell').should('contain', 'Unpublished')
   })
 
   it('allows datasets to be created', function() {
