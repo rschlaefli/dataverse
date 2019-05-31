@@ -29,6 +29,8 @@ jobs:
         directories:
           # we also need to cache folder with Cypress binary
           - ~/.cache
+          # we want to cache the Glassfish and Solr dependencies as well
+          - conf/docker-aio/dv/deps
       before_install:
         - cd tests
       install:
