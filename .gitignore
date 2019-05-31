@@ -52,3 +52,6 @@ scripts/installer/default.config
 .idea
 **/*.iml
 /bin/
+
+# do not track Visual Studio Code files
+.vscode
